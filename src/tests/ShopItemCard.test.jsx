@@ -1,11 +1,11 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import Item from '../components/Item.jsx'
+import ShopItemCard from '../components/ShopItemCard.jsx'
 import placeholderImage from '../assets/logo192.png'
 
 test("shows the item's image", () => {
   render(
-    <Item
+    <ShopItemCard
       imagePath={placeholderImage}
       name={'Test Item'}
       description={'A test item.'}
@@ -20,7 +20,7 @@ test("shows the item's image", () => {
 
 test("shows the item's name", () => {
   render(
-    <Item
+    <ShopItemCard
       imagePath={placeholderImage}
       name={'Test Item'}
       description={'A test item.'}
@@ -35,7 +35,7 @@ test("shows the item's name", () => {
 
 test("shows the item's description", () => {
   render(
-    <Item
+    <ShopItemCard
       imagePath={placeholderImage}
       name={'Test Item'}
       description={'A test item.'}
@@ -50,7 +50,7 @@ test("shows the item's description", () => {
 
 test("shows the item's button with it's price", () => {
   render(
-    <Item
+    <ShopItemCard
       imagePath={placeholderImage}
       name={'Test Item'}
       description={'A test item.'}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Shop from '../components/Shop.jsx'
-import Item from '../components/Item.jsx'
+import ShopItemCard from '../components/ShopItemCard.jsx'
 
 function mockItem() {
   return <p>Mock Item</p>
@@ -9,7 +9,11 @@ function mockItem() {
 
 jest.mock('../components/Item.jsx', () => mockItem)
 
-const mockItems = [<Item key={1} />, <Item key={2} />, <Item key={3} />]
+const mockItems = [
+  <ShopItemCard key={1} />,
+  <ShopItemCard key={2} />,
+  <ShopItemCard key={3} />
+]
 
 test('shows a welcome message', () => {
   render(<Shop items={mockItems} />)

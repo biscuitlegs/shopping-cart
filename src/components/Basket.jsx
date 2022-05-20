@@ -2,17 +2,16 @@ import React from 'react'
 import uniqid from 'uniqid'
 import propTypes from 'prop-types'
 import BasketItemCard from './BasketItemCard.jsx'
-import itemList from '../itemList'
 
-const Basket = ({ basketItems, updateBasketItem }) => {
+const Basket = ({ stockItems, basketItems, updateBasketItem }) => {
   let modalBody = null
   if (basketItems.length === 0) {
     modalBody = 'No items in the basket.'
   } else {
     modalBody = (
-      <ul className="list-group">
+      <ul className="list-group" data-testid="basketItems">
         {basketItems.map(({ id: basketItemId, quantity }) => {
-          const foundItem = itemList.find(
+          const foundItem = stockItems.find(
             ({ id: listItemId }) => listItemId === basketItemId
           )
 
@@ -36,6 +35,7 @@ const Basket = ({ basketItems, updateBasketItem }) => {
   }
   return (
     <div
+      data-testid="basket"
       className="modal fade"
       id="exampleModal"
       tabIndex="-1"
@@ -49,6 +49,7 @@ const Basket = ({ basketItems, updateBasketItem }) => {
               Basket
             </h5>
             <button
+              data-testid="basketCross"
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
@@ -57,13 +58,6 @@ const Basket = ({ basketItems, updateBasketItem }) => {
           </div>
           <div className="modal-body">{modalBody}</div>
           <div className="modal-footer">
-            <button
-              type="button"
-              className="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
             <button type="button" className="btn btn-success">
               Checkout
             </button>
@@ -75,6 +69,7 @@ const Basket = ({ basketItems, updateBasketItem }) => {
 }
 
 Basket.propTypes = {
+  stockItems: propTypes.array.isRequired,
   basketItems: propTypes.array.isRequired,
   updateBasketItem: propTypes.func.isRequired
 }

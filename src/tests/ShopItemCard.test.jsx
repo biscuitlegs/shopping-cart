@@ -1,15 +1,20 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import uniqid from 'uniqid'
 import ShopItemCard from '../components/ShopItemCard.jsx'
 import placeholderImage from '../assets/logo192.png'
+
+const addItemMock = jest.fn()
 
 test("shows the item's image", () => {
   render(
     <ShopItemCard
+      id={uniqid()}
       imagePath={placeholderImage}
       name={'Test Item'}
       description={'A test item.'}
       price={100}
+      addBasketItem={addItemMock}
     />
   )
 
@@ -21,10 +26,12 @@ test("shows the item's image", () => {
 test("shows the item's name", () => {
   render(
     <ShopItemCard
+      id={uniqid()}
       imagePath={placeholderImage}
       name={'Test Item'}
       description={'A test item.'}
       price={100}
+      addBasketItem={addItemMock}
     />
   )
 
@@ -36,10 +43,12 @@ test("shows the item's name", () => {
 test("shows the item's description", () => {
   render(
     <ShopItemCard
+      id={uniqid()}
       imagePath={placeholderImage}
       name={'Test Item'}
       description={'A test item.'}
       price={100}
+      addBasketItem={addItemMock}
     />
   )
 
@@ -51,14 +60,16 @@ test("shows the item's description", () => {
 test("shows the item's button with it's price", () => {
   render(
     <ShopItemCard
+      id={uniqid()}
       imagePath={placeholderImage}
       name={'Test Item'}
       description={'A test item.'}
       price={100}
+      addBasketItem={addItemMock}
     />
   )
 
-  const button = screen.getByRole('link', /100/)
+  const button = screen.getByRole('button', /100/)
 
   expect(button).toBeInTheDocument()
 })

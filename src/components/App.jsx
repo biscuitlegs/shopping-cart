@@ -6,11 +6,11 @@ import bootstrapStyle from 'bootstrap/dist/css/bootstrap.min.css'
 import bootstrap from 'bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import _ from 'lodash'
-import Home from './components/Home.jsx'
-import Shop from './components/Shop.jsx'
-import Navbar from './components/Navbar.jsx'
-import itemList from './itemList'
-import Basket from './components/Basket.jsx'
+import Home from './Home.jsx'
+import Shop from './Shop.jsx'
+import Navbar from './Navbar.jsx'
+import itemList from '../itemList'
+import Basket from './Basket.jsx'
 
 const App = () => {
   // eslint-disable-next-line no-unused-vars
@@ -58,7 +58,11 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Basket basketItems={basketItems} updateBasketItem={updateBasketItem} />
+      <Basket
+        stockItems={stockItems}
+        basketItems={basketItems}
+        updateBasketItem={updateBasketItem}
+      />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route

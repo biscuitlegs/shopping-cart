@@ -34,8 +34,11 @@ const BasketItemCard = ({
                 type="number"
                 defaultValue={quantity}
                 min={1}
-                onInput={(e) => {
+                onBlur={(e) => {
                   updateBasketItem(id, Number(e.currentTarget.value))
+                }}
+                onClick={(e) => {
+                  e.currentTarget.focus()
                 }}
               />
             </label>

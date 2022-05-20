@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
-import App from '../App.jsx'
+import App from '../components/App.jsx'
 
 function mockHome() {
   return <h1>Home page loaded</h1>
@@ -91,4 +91,23 @@ test('renders the home page when the brand link is clicked', () => {
   })
 
   expect(homeHeading).toBeInTheDocument()
+})
+
+test('shows the basket when the basket button is clicked', () => {
+  render(
+    <MemoryRouter initialEntries={['/shop']}>
+      <App />
+    </MemoryRouter>
+  )
+
+  act(() => {
+    const basketButton = screen.getByRole('button', {
+      name: /Basket/
+    })
+    userEvent.click(basketButton)
+  })
+
+  const basket = screen.getByTestId('basket')
+
+  expect(basket).toBeInTheDocument()
 })

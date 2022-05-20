@@ -53,3 +53,15 @@ test('shows a shop link in the navbar', () => {
 
   expect(shopLink).toBeInTheDocument()
 })
+
+test('shows a basket button in the navbar', () => {
+  render(
+    <MemoryRouter>
+      <Navbar />
+    </MemoryRouter>
+  )
+
+  const button = screen.getByRole('button', { name: /Basket/ })
+
+  expect(button).toBeInTheDocument()
+})

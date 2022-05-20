@@ -1,22 +1,43 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Shop from '../components/Shop.jsx'
-import ShopItemCard from '../components/ShopItemCard.jsx'
 
 function mockItem() {
   return <p>Mock Item</p>
 }
 
-jest.mock('../components/Item.jsx', () => mockItem)
+jest.mock('../components/ShopItemCard.jsx', () => mockItem)
+const addItemMock = jest.fn()
 
 const mockItems = [
-  <ShopItemCard key={1} />,
-  <ShopItemCard key={2} />,
-  <ShopItemCard key={3} />
+  {
+    id: 'asd2321',
+    name: 'Item 1',
+    imagePath: '...',
+    description: 'A mock item.',
+    price: 10,
+    quantity: 5
+  },
+  {
+    id: 'asd2sdf1',
+    name: 'Item 2',
+    imagePath: '...',
+    description: 'A mock item.',
+    price: 15,
+    quantity: 2
+  },
+  {
+    id: 'asd23d321',
+    name: 'Item 3',
+    imagePath: '...',
+    description: 'A mock item.',
+    price: 20,
+    quantity: 17
+  }
 ]
 
 test('shows a welcome message', () => {
-  render(<Shop items={mockItems} />)
+  render(<Shop stockItems={mockItems} addBasketItem={addItemMock} />)
 
   const message = screen.getByRole('heading')
 
@@ -24,7 +45,7 @@ test('shows a welcome message', () => {
 })
 
 test('shows items in the shop', () => {
-  render(<Shop items={mockItems} />)
+  render(<Shop stockItems={mockItems} addBasketItem={addItemMock} />)
 
   const grid = screen.getByTestId('grid')
   const shopItems = screen.getAllByText('Mock Item')

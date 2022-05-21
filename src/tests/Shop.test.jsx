@@ -39,7 +39,7 @@ const mockItems = [
 test('shows a welcome message', () => {
   render(<Shop stockItems={mockItems} addBasketItem={addItemMock} />)
 
-  const message = screen.getByRole('heading')
+  const message = screen.getByRole('heading', { name: 'Catalog' })
 
   expect(message).toBeInTheDocument()
 })
@@ -53,4 +53,12 @@ test('shows items in the shop', () => {
   expect(grid.childNodes).toHaveLength(3)
   expect(shopItems).toHaveLength(3)
   shopItems.forEach((item) => expect(item).toBeInTheDocument())
+})
+
+test('shows a sidebar', () => {
+  render(<Shop stockItems={mockItems} addBasketItem={addItemMock} />)
+
+  const sidebar = screen.getByTestId('sidebar')
+
+  expect(sidebar).toBeInTheDocument()
 })

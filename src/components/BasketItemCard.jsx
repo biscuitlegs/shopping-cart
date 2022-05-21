@@ -44,7 +44,9 @@ const BasketItemCard = ({
                 }}
               />
             </label>
-            <div data-testid="itemTotal">Total: ${price * quantity}</div>
+            <div className="mb-2" data-testid="itemTotal">
+              Total: ${price * quantity}
+            </div>
             <button
               className="btn btn-danger"
               onClick={() => {

@@ -135,3 +135,21 @@ test('user can remove an item from the basket', () => {
 
   expect(basketItems.childNodes).toHaveLength(1)
 })
+
+test('clicking the home shop link opens the shop', () => {
+  render(
+    <MemoryRouter>
+      (<App />)
+    </MemoryRouter>
+  )
+
+  const homeShopLink = screen.getByRole('link', { name: 'Browse Shop' })
+
+  act(() => {
+    userEvent.click(homeShopLink)
+  })
+
+  const shopHeading = screen.getByRole('heading', { name: 'Catalog' })
+
+  expect(shopHeading).toBeInTheDocument()
+})

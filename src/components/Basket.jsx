@@ -3,6 +3,23 @@ import uniqid from 'uniqid'
 import propTypes from 'prop-types'
 import BasketItemCard from './BasketItemCard.jsx'
 
+const calculateBasketTotal = (basketItems, stockItems) => {
+  const basketTotals = basketItems.map(({ id: basketItemId, quantity }) => {
+    const foundItem = stockItems.find(
+      ({ id: listItemId }) => listItemId === basketItemId
+    )
+    const basketItemTotal = foundItem.price * quantity
+
+    return basketItemTotal
+  })
+
+  const basketTotal = basketTotals.reduce(
+    (currentPrice, total) => currentPrice + total
+  )
+
+  return basketTotal
+}
+
 const Basket = ({
   stockItems,
   basketItems,
@@ -28,6 +45,7 @@ const Basket = ({
                   name={foundItem.name}
                   imagePath={foundItem.imagePath}
                   description={foundItem.description}
+                  price={foundItem.price}
                   quantity={quantity}
                   updateBasketItem={updateBasketItem}
                   removeBasketItem={removeBasketItem}
@@ -64,6 +82,11 @@ const Basket = ({
           </div>
           <div className="modal-body">{modalBody}</div>
           <div className="modal-footer">
+            {basketItems.length > 0 ? (
+              <div data-testid="basketTotal">
+                Basket Total: ${calculateBasketTotal(basketItems, stockItems)}
+              </div>
+            ) : null}
             <button type="button" className="btn btn-success">
               Checkout
             </button>

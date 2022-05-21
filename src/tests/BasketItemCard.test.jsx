@@ -12,6 +12,7 @@ test('shows the item name on the screen', () => {
       imagePath="..."
       name="Test Item"
       description="An item for testing."
+      price={5}
       quantity={1}
       updateBasketItem={updateItemMock}
       removeBasketItem={removeItemMock}
@@ -31,6 +32,7 @@ test('shows the description name on the screen', () => {
       name="Test Item"
       description="An item for testing."
       quantity={1}
+      price={5}
       updateBasketItem={updateItemMock}
       removeBasketItem={removeItemMock}
     />
@@ -49,6 +51,7 @@ test('shows the quantity input label on the screen', () => {
       name="Test Item"
       description="An item for testing."
       quantity={1}
+      price={5}
       updateBasketItem={updateItemMock}
       removeBasketItem={removeItemMock}
     />
@@ -67,6 +70,7 @@ test('shows the quantity input on the screen', () => {
       name="Test Item"
       description="An item for testing."
       quantity={1}
+      price={5}
       updateBasketItem={updateItemMock}
       removeBasketItem={removeItemMock}
     />
@@ -75,4 +79,23 @@ test('shows the quantity input on the screen', () => {
   const input = screen.getByRole('spinbutton')
 
   expect(input).toBeInTheDocument()
+})
+
+test('shows the the total price of an item', () => {
+  render(
+    <BasketItemCard
+      id="1"
+      imagePath="..."
+      name="Test Item"
+      description="An item for testing."
+      quantity={3}
+      price={5}
+      updateBasketItem={updateItemMock}
+      removeBasketItem={removeItemMock}
+    />
+  )
+
+  const totalPrice = screen.getByTestId('itemTotal')
+
+  expect(totalPrice.textContent).toBe('Total: $15')
 })

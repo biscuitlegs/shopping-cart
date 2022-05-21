@@ -10,6 +10,7 @@ const BasketItemCard = ({
   name,
   description,
   quantity,
+  price,
   updateBasketItem,
   removeBasketItem
 }) => (
@@ -26,7 +27,7 @@ const BasketItemCard = ({
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text">{description}</p>
-          <p className="card-text">
+          <div className="card-text">
             <label className="form-label" htmlFor={inputId}>
               Quantity
               <input
@@ -43,6 +44,7 @@ const BasketItemCard = ({
                 }}
               />
             </label>
+            <div data-testid="itemTotal">Total: ${price * quantity}</div>
             <button
               className="btn btn-danger"
               onClick={() => {
@@ -52,7 +54,7 @@ const BasketItemCard = ({
               <span>Remove </span>
               <i className="bi bi-trash"></i>
             </button>
-          </p>
+          </div>
         </div>
       </div>
     </div>
@@ -65,6 +67,7 @@ BasketItemCard.propTypes = {
   name: propTypes.string.isRequired,
   description: propTypes.string.isRequired,
   quantity: propTypes.number.isRequired,
+  price: propTypes.number.isRequired,
   updateBasketItem: propTypes.func.isRequired,
   removeBasketItem: propTypes.func.isRequired
 }

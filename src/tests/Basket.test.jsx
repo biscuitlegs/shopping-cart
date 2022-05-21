@@ -12,26 +12,23 @@ const mockStockItems = [
   {
     id: '123abc',
     imagePath: '...',
-    name: 'Sports Car',
-    description:
-      'Quite a nice sports car. Good for showing off at the supermarket.',
+    name: 'Item 1',
+    description: 'This is a mock Item.',
     price: 100000
   },
   {
     id: '456def',
     imagePath: '...',
-    name: 'Sports Car',
-    description:
-      'Quite a nice sports car. Good for showing off at the supermarket.',
-    price: 100000
+    name: 'Item 2',
+    description: 'This is a mock Item.',
+    price: 100
   },
   {
     id: '789ghi',
     imagePath: '...',
-    name: 'Sports Car',
-    description:
-      'Quite a nice sports car. Good for showing off at the supermarket.',
-    price: 100000
+    name: 'Item 3',
+    description: 'This is a mock Item.',
+    price: 10
   }
 ]
 
@@ -132,4 +129,19 @@ test('shows the items from the basket if they exist', () => {
 
   expect(basketItems).toHaveLength(3)
   basketItems.forEach((item) => expect(item).toBeInTheDocument())
+})
+
+test('if there are items in the basket shows the total price for all basket items', () => {
+  render(
+    <Basket
+      stockItems={mockStockItems}
+      basketItems={mockBasketItems}
+      updateBasketItem={mockUpdateItem}
+      removeBasketItem={mockRemoveItem}
+    />
+  )
+
+  const basketTotal = screen.getByTestId('basketTotal')
+
+  expect(basketTotal.textContent).toBe('Basket Total: $501150')
 })

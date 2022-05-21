@@ -40,6 +40,7 @@ function mockBasketItem() {
 }
 
 const mockUpdateItem = jest.fn()
+const mockRemoveItem = jest.fn()
 jest.mock('../components/BasketItemCard.jsx', () => mockBasketItem)
 
 test('shows the basket on the screen', () => {
@@ -48,6 +49,7 @@ test('shows the basket on the screen', () => {
       stockItems={mockStockItems}
       basketItems={mockBasketItems}
       updateBasketItem={mockUpdateItem}
+      removeBasketItem={mockRemoveItem}
     />
   )
 
@@ -62,6 +64,7 @@ test('shows the basket title on the screen', () => {
       stockItems={mockStockItems}
       basketItems={mockBasketItems}
       updateBasketItem={mockUpdateItem}
+      removeBasketItem={mockRemoveItem}
     />
   )
 
@@ -76,6 +79,7 @@ test('shows the basket cross button on the screen', () => {
       stockItems={mockStockItems}
       basketItems={mockBasketItems}
       updateBasketItem={mockUpdateItem}
+      removeBasketItem={mockRemoveItem}
     />
   )
 
@@ -90,6 +94,7 @@ test('shows the basket checkout button on the screen', () => {
       stockItems={mockStockItems}
       basketItems={mockBasketItems}
       updateBasketItem={mockUpdateItem}
+      removeBasketItem={mockRemoveItem}
     />
   )
 
@@ -104,6 +109,7 @@ test('shows the empty basket message if there are no items in the basket', () =>
       stockItems={mockStockItems}
       basketItems={[]}
       updateBasketItem={mockUpdateItem}
+      removeBasketItem={mockRemoveItem}
     />
   )
 
@@ -118,6 +124,7 @@ test('shows the items from the basket if they exist', () => {
       stockItems={mockStockItems}
       basketItems={mockBasketItems}
       updateBasketItem={mockUpdateItem}
+      removeBasketItem={mockRemoveItem}
     />
   )
 

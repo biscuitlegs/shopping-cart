@@ -103,3 +103,35 @@ test("if an item is already in the basket, adding the same item to the basket wi
 
   expect(basketItemQuantity.value).toBe('15')
 })
+
+test('user can remove an item from the basket', () => {
+  render(
+    <MemoryRouter initialEntries={['/shop']}>
+      <App />
+    </MemoryRouter>
+  )
+
+  act(() => {
+    const grid = screen.getByTestId('grid')
+    const shopItem = grid.childNodes[0].childNodes[0]
+    const shopItemButton = within(shopItem).getByRole('button')
+    const shopItemQuantityInput = within(shopItem).getByRole('spinbutton')
+    userEvent.clear(shopItemQuantityInput)
+    userEvent.type(shopItemQuantityInput, '5')
+    userEvent.click(shopItemButton)
+  })
+
+  const basketItems = screen.getByTestId('basketItems')
+
+  expect(basketItems.childNodes).toHaveLength(1)
+
+  act(() => {
+    const removeItemButton = screen.getByRole('button', {
+      name: /Remove/,
+      hidden: true
+    })
+    userEvent.click(removeItemButton)
+  })
+
+  expect(basketItems.childNodes).toHaveLength(1)
+})

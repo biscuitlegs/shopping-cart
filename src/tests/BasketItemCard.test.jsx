@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import BasketItemCard from '../components/BasketItemCard.jsx'
 
 const updateItemMock = jest.fn()
+const removeItemMock = jest.fn()
 
 test('shows the item name on the screen', () => {
   render(
@@ -13,6 +14,7 @@ test('shows the item name on the screen', () => {
       description="An item for testing."
       quantity={1}
       updateBasketItem={updateItemMock}
+      removeBasketItem={removeItemMock}
     />
   )
 
@@ -30,6 +32,7 @@ test('shows the description name on the screen', () => {
       description="An item for testing."
       quantity={1}
       updateBasketItem={updateItemMock}
+      removeBasketItem={removeItemMock}
     />
   )
 
@@ -47,6 +50,7 @@ test('shows the quantity input label on the screen', () => {
       description="An item for testing."
       quantity={1}
       updateBasketItem={updateItemMock}
+      removeBasketItem={removeItemMock}
     />
   )
 
@@ -64,6 +68,7 @@ test('shows the quantity input on the screen', () => {
       description="An item for testing."
       quantity={1}
       updateBasketItem={updateItemMock}
+      removeBasketItem={removeItemMock}
     />
   )
 

@@ -3,7 +3,12 @@ import uniqid from 'uniqid'
 import propTypes from 'prop-types'
 import BasketItemCard from './BasketItemCard.jsx'
 
-const Basket = ({ stockItems, basketItems, updateBasketItem }) => {
+const Basket = ({
+  stockItems,
+  basketItems,
+  updateBasketItem,
+  removeBasketItem
+}) => {
   let modalBody = null
   if (basketItems.length === 0) {
     modalBody = 'No items in the basket.'
@@ -25,6 +30,7 @@ const Basket = ({ stockItems, basketItems, updateBasketItem }) => {
                   description={foundItem.description}
                   quantity={quantity}
                   updateBasketItem={updateBasketItem}
+                  removeBasketItem={removeBasketItem}
                 />
               }
             </li>
@@ -71,7 +77,8 @@ const Basket = ({ stockItems, basketItems, updateBasketItem }) => {
 Basket.propTypes = {
   stockItems: propTypes.array.isRequired,
   basketItems: propTypes.array.isRequired,
-  updateBasketItem: propTypes.func.isRequired
+  updateBasketItem: propTypes.func.isRequired,
+  removeBasketItem: propTypes.func.isRequired
 }
 
 export default Basket

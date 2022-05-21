@@ -55,6 +55,11 @@ const App = () => {
     }
   }
 
+  const removeBasketItem = (id) => {
+    const otherItems = basketItems.filter((basketItem) => basketItem.id !== id)
+    setBasketItems([...otherItems])
+  }
+
   return (
     <div>
       <Navbar />
@@ -62,6 +67,7 @@ const App = () => {
         stockItems={stockItems}
         basketItems={basketItems}
         updateBasketItem={updateBasketItem}
+        removeBasketItem={removeBasketItem}
       />
       <Routes>
         <Route path="/" element={<Home />}></Route>

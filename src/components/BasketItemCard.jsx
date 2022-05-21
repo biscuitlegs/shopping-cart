@@ -10,7 +10,8 @@ const BasketItemCard = ({
   name,
   description,
   quantity,
-  updateBasketItem
+  updateBasketItem,
+  removeBasketItem
 }) => (
   <div className="card mb-3 border-0">
     <div className="row g-0">
@@ -42,6 +43,15 @@ const BasketItemCard = ({
                 }}
               />
             </label>
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                removeBasketItem(id)
+              }}
+            >
+              <span>Remove </span>
+              <i className="bi bi-trash"></i>
+            </button>
           </p>
         </div>
       </div>
@@ -55,7 +65,8 @@ BasketItemCard.propTypes = {
   name: propTypes.string.isRequired,
   description: propTypes.string.isRequired,
   quantity: propTypes.number.isRequired,
-  updateBasketItem: propTypes.func.isRequired
+  updateBasketItem: propTypes.func.isRequired,
+  removeBasketItem: propTypes.func.isRequired
 }
 
 export default BasketItemCard

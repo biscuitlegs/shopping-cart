@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
+import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router-dom'
 import Navbar from '../components/Navbar.jsx'
 
@@ -64,4 +65,16 @@ test('shows a basket button in the navbar', () => {
   const button = screen.getByRole('button', { name: /Basket/ })
 
   expect(button).toBeInTheDocument()
+})
+
+test('renders navbar correctly', () => {
+  const tree = renderer
+    .create(
+      <MemoryRouter>
+        <Navbar />
+      </MemoryRouter>
+    )
+    .toJSON()
+
+  expect(tree).toMatchSnapshot()
 })

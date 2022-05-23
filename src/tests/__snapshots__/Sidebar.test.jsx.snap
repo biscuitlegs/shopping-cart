@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders sidebar correctly 1`] = `
+<div
+  className="d-flex flex-column flex-shrink-0 p-3 bg-light"
+  data-testid="sidebar"
+>
+  <h5
+    className="fs-4 text-center"
+  >
+    Sidebar
+  </h5>
+  <hr />
+  <ul
+    className="nav nav-pills flex-column mb-auto"
+  >
+    <li
+      className="nav-item"
+    >
+      <a
+        aria-current="page"
+        className="nav-link active"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#home"
+          />
+        </svg>
+        Nulla facilisis
+      </a>
+    </li>
+    <li>
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#speedometer2"
+          />
+        </svg>
+        Etiam elementum
+      </a>
+    </li>
+    <li>
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#table"
+          />
+        </svg>
+        Cras consequat
+      </a>
+    </li>
+    <li>
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#grid"
+          />
+        </svg>
+        Lacinia tempor
+      </a>
+    </li>
+    <li>
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#people-circle"
+          />
+        </svg>
+        Cras tincidunt
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <ul
+    className="nav nav-pills flex-column mb-auto"
+  >
+    <li
+      className="nav-item"
+    >
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#home"
+          />
+        </svg>
+        Etiam pulvinar
+      </a>
+    </li>
+    <li>
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#speedometer2"
+          />
+        </svg>
+        Integer viverra
+      </a>
+    </li>
+    <li>
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#table"
+          />
+        </svg>
+        Nulla
+      </a>
+    </li>
+    <li>
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#grid"
+          />
+        </svg>
+        Cras sed
+      </a>
+    </li>
+    <li>
+      <a
+        className="nav-link link-dark"
+        href="#"
+      >
+        <svg
+          className="bi pe-none me-2"
+          height="16"
+          width="16"
+        >
+          <use
+            xlinkHref="#people-circle"
+          />
+        </svg>
+        Praesent sit
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <div
+    className="dropdown"
+  >
+    <a
+      aria-expanded="false"
+      className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
+      data-bs-toggle="dropdown"
+      href="#"
+      id="dropdownUser2"
+    >
+      <img
+        alt=""
+        className="rounded-circle me-2"
+        height="32"
+        src="logo192.png"
+        width="32"
+      />
+      <strong>
+        Username
+      </strong>
+    </a>
+    <ul
+      aria-labelledby="dropdownUser2"
+      className="dropdown-menu text-small shadow"
+    >
+      <li>
+        <a
+          className="dropdown-item"
+          href="#"
+        >
+          Settings
+        </a>
+      </li>
+      <li>
+        <a
+          className="dropdown-item"
+          href="#"
+        >
+          Profile
+        </a>
+      </li>
+      <li>
+        <hr
+          className="dropdown-divider"
+        />
+      </li>
+      <li>
+        <a
+          className="dropdown-item"
+          href="#"
+        >
+          Sign out
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

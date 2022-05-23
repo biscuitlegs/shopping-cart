@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders navbar correctly 1`] = `
+<nav
+  className="navbar navbar-expand-lg bg-light"
+>
+  <div
+    className="container-fluid"
+  >
+    <a
+      className="navbar-brand"
+      href="/"
+      onClick={[Function]}
+    >
+      React Shop
+    </a>
+    <button
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      className="navbar-toggler"
+      data-bs-target="#navbarSupportedContent"
+      data-bs-toggle="collapse"
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarSupportedContent"
+    >
+      <ul
+        className="navbar-nav me-auto mb-2 mb-lg-0"
+      >
+        <li
+          className="nav-item"
+        >
+          <a
+            aria-current="page"
+            className="nav-link active"
+            href="/"
+            onClick={[Function]}
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <a
+            className="nav-link"
+            href="/shop"
+            onClick={[Function]}
+          >
+            Shop
+          </a>
+        </li>
+      </ul>
+      <button
+        className="btn btn-primary"
+        data-bs-target="#exampleModal"
+        data-bs-toggle="modal"
+        type="button"
+      >
+        <span
+          className="me-2"
+        >
+          Basket
+        </span>
+        <i
+          className="bi bi-bag"
+        />
+      </button>
+    </div>
+  </div>
+</nav>
+`;

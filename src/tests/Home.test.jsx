@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, screen, within } from '@testing-library/react'
+import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router-dom'
 import Home from '../components/Home.jsx'
 
@@ -65,4 +66,16 @@ test('shows a link that opens the shop', () => {
   const link = screen.getByRole('link')
 
   expect(link).toBeInTheDocument()
+})
+
+test('renders home correctly', () => {
+  const tree = renderer
+    .create(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    )
+    .toJSON()
+
+  expect(tree).toMatchSnapshot()
 })
